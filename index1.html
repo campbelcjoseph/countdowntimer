@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipse Countdown</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Eclipse Countdown</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Next Lunar Eclipse</h2>
+            <div id="lunarCountdown">
+                <p>Days: <span id="lunarDays">00</span></p>
+                <p>Hours: <span id="lunarHours">00</span></p>
+                <p>Minutes: <span id="lunarMinutes">00</span></p>
+                <p>Seconds: <span id="lunarSeconds">00</span></p>
+            </div>
+        </section>
+        <section>
+            <h2>Next Solar Eclipse</h2>
+            <div id="solarCountdown">
+                <p>Days: <span id="solarDays">00</span></p>
+                <p>Hours: <span id="solarHours">00</span></p>
+                <p>Minutes: <span id="solarMinutes">00</span></p>
+                <p>Seconds: <span id="solarSeconds">00</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Eclipse Countdown</p>
+    </footer>
+
+    <script>
+        const lunarEclipseDate = new Date("2023-10-28T00:00:00Z");
+
+// Example solar eclipse date (replace with the actual date)
+const solarEclipseDate = new Date("2023-10-14T00:00:00Z");
+
+function calculateTimeRemaining(eclipseDate) {
+    const now = new Date();
+    const timeUntilEclipse = eclipseDate - now;
+
+    const days = Math.floor(timeUntilEclipse / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeUntilEclipse % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeUntilEclipse % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeUntilEclipse % (1000 * 60)) / 1000);
+
+    return { days, hours, minutes, seconds };
+}
+
+function updateCountdownTimers() {
+    const lunarTimer = document.getElementById("lunarCountdown");
+    const solarTimer = document.getElementById("solarCountdown");
+
+    const lunarTimeRemaining = calculateTimeRemaining(lunarEclipseDate);
+    const solarTimeRemaining = calculateTimeRemaining(solarEclipseDate);
+
+    lunarTimer.querySelector("#lunarDays").textContent = lunarTimeRemaining.days;
+    lunarTimer.querySelector("#lunarHours").textContent = lunarTimeRemaining.hours;
+    lunarTimer.querySelector("#lunarMinutes").textContent = lunarTimeRemaining.minutes;
+    lunarTimer.querySelector("#lunarSeconds").textContent = lunarTimeRemaining.seconds;
+
+    solarTimer.querySelector("#solarDays").textContent = solarTimeRemaining.days;
+    solarTimer.querySelector("#solarHours").textContent = solarTimeRemaining.hours;
+    solarTimer.querySelector("#solarMinutes").textContent = solarTimeRemaining.minutes;
+    solarTimer.querySelector("#solarSeconds").textContent = solarTimeRemaining.seconds;
+}
+
+// Call the function to update countdown timers initially
+updateCountdownTimers();
+
+// Update countdown timers periodically (e.g., every second)
+setInterval(updateCountdownTimers, 1000);
+    </script> 
+</body>
+</html>

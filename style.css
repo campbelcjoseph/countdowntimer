@@ -1,0 +1,93 @@
+/* Reset some default styles to ensure consistent rendering */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background image for the entire page */
+body {
+    background-image: url('64851c1d1adcb461d88b7712247f592c.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff; /* Text color */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    min-height: 100vh; /* Set the minimum height of the body to 100% of the viewport height */
+    display: flex;
+    flex-direction: column; /* Ensure a flex container for sticky footer */
+}
+
+/* Style the header section */
+header, footer {
+    background-color: #000; /* Black background color */
+    color: #fff; /* Text color */
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Font type */
+    font-size: 28px; /* Font size */
+}
+
+/* Style the main content area */
+main {
+    flex-grow: 1; /* Allow main content to grow and push footer to the bottom */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333; /* Main content background color */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the section headings */
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: hwb(0 100% 0%); /* Heading color */
+}
+
+h2 {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #c4cad1; /* Heading color */
+}
+
+/* Style the countdown timer boxes */
+section {
+    margin-bottom: 40px;
+    background-color: #222; /* Dark background color (blackish) */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the countdown timer values */
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #4a90e2; /* Countdown timer value color */
+}
+
+/* Style the countdown timer labels */
+p {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #fff; /* Countdown timer label color (white) */
+}
+
+/* Style links */
+a {
+    color: #007BFF; /* Link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #fff; /* Hovered link color */
+}
+
+/* Style the footer */
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
+}
